@@ -33,7 +33,9 @@ module.exports = Object.assign({}, addonBaseConfig, {
       options.includeDataAdapterInProduction = parentIsEmberDataAddon;
     }
 
-    this.__isEnabled = env !== 'production' || options.includeDataAdapterInProduction === true;
+    if (env !== 'production' || options.includeDataAdapterInProduction === true) {
+      this.__isEnabled = true;
+    }
 
     return this.__isEnabled;
   },
